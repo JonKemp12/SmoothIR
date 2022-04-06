@@ -9,6 +9,7 @@
  */
 #include <IRremote.h>
 #include <Math.h>
+#include <Motor.h>
 
 #define IR_PIN    12 //IR receiver Signal pin connect to Arduino pin D2
 IRrecv IR(IR_PIN);  //   IRrecv object  IR get code from IR remoter
@@ -39,11 +40,11 @@ enum DN {
 	DEF
 } Drive_Num = DEF;
 
+Motor leftMotor = Motor(LEFT);
+Motor rightMotor = Motor(RIGHT);
+
 bool stopFlag = true; //set stop flag
 bool JogFlag = false;
-uint16_t JogTimeCnt = 0;
-uint32_t JogTime = 0;
-uint8_t motor_update_flag = 0;
 /***************motor control***************/
 
 /* Drive
@@ -159,7 +160,6 @@ void printReport() {
 void doDriveTick()
 {
 	unsigned long currentMillis = millis();
-	tickCounter++;
 
 	if (currentMillis - previousMillis > interval) {
 		tickCounter++;

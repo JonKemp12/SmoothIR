@@ -22,6 +22,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/core/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/libraries/IRremote-2.2.3}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/libraries/Arduino-PID-Library-master}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.cpp.sketch.input.733918760" name="CPP source files" superClass="io.sloeber.compiler.cpp.sketch.input"/>
 							</tool>
@@ -30,6 +31,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/core/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/libraries/IRremote-2.2.3}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/libraries/Arduino-PID-Library-master}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.c.sketch.input.2062435074" name="C Source Files" superClass="io.sloeber.compiler.c.sketch.input"/>
 							</tool>
@@ -38,6 +40,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/core/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/libraries/IRremote-2.2.3}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SmoothIR/libraries/Arduino-PID-Library-master}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.S.sketch.input.1831569921" name="Assembly source files" superClass="io.sloeber.compiler.S.sketch.input"/>
 							</tool>
@@ -93,4 +96,5 @@
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="refreshScope"/>
 </cproject>
