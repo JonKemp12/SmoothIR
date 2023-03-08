@@ -52,6 +52,8 @@ public:
 	volatile long distanceCount = 0;	// Up/down count of pulses from motor = distance driven
 	void setSpeed(int);
 	void drive(int);		// Drive motor at a speed -100 - 0 +100
+	long getDistance();		// Return distance count
+	double getCurrentSpeed();
 
 private:
 	byte _speedPin;		// PWM pin for this motor
@@ -68,7 +70,7 @@ private:
 	byte _prevDir = STOPPED;
 
 	// Vars to calculate time and distance changes
-	unsigned long _prevMillis = 0;
+	unsigned long _prevMicros = 0;
 	long _prevDistanceCount = 0;
 
 	PID _speedPID;

@@ -50,7 +50,7 @@ void Motor::setup() {
 
 	// Attach motor encoder pulse pin to handler to maintain distance count
 	pinMode(_pulsePin, INPUT_PULLUP);
-	attachInterrupt(digitalPinToInterrupt(_pulsePin),_pulseHandler, RISING);
+	attachInterrupt(digitalPinToInterrupt(_pulsePin),_pulseHandler, CHANGE);
 
 	_speedPID(&_currentSpeed, &_requiredSpeed, &_driveValue, SPEED_KP, SPEED_KI, SPEED_KD, DIRECT);
 	_speedPID.SetMode(MANUAL);
@@ -61,18 +61,18 @@ void Motor::setup() {
  * Args: speed -100 - 0 - +100
  */
 void Motor::drive(int speed) {
-	unsigned long currentMillis = millis();
-	unsigned long deltaMillis;
-	if (currentMillis < _prevMillis) { // overflow
-		deltaMillis = _prevMillis + currentMillis + currentMillis;
+	unsigned long currentMicros = millis();
+	unsigned long deltaMicros;
+	if (currentMicros < _prevMicros) { // overflow
+		deltaMicros = _prevMicros + currentMicros + currentMicros;
 	} else {
-		deltaMillis = currentMillis - _prevMillis;
+		deltaMicros = currentMicros - _prevMicros;
 	}
-	_prevMillis = currentMillis;
+	_prevMicros = currentMicros;
 
 	long deltaCount = _prevDistanceCount - distanceCount;
 
-	_currentSpeed = deltaCount * 1000 / deltaMillis;		// in distCounts/s
+	_currentSpeed = deltaCount * 1000000 / deltaMicros;		// in distCounts/s
 	_requiredSpeed = speed * SPEEDSCALER;
 	_speedPID.Compute();
 
@@ -99,6 +99,14 @@ void Motor::drive(int speed) {
 		digitalWrite(_dirPin1, LOW);
 		digitalWrite(_dirPin2, LOW);
 	}
+}
+
+long Motor::getDistance() {
+	return(distanceCount);
+}
+
+double Motor::getCurrentSpeed() {
+	return(_currentSpeed);
 }
 
 
